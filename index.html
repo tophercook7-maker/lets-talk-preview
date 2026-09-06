@@ -295,7 +295,7 @@
     align-items:baseline;transition:background .3s var(--ease),padding-left .3s var(--ease)}
   .m:hover{background:var(--amber-t);padding-left:calc(clamp(20px,3vw,32px) + 8px)}
   .m .tm{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:13px;
-    letter-spacing:.11em;text-transform:uppercase;color:var(--amber-d);flex:none;width:88px}
+    letter-spacing:.11em;text-transform:uppercase;color:var(--amber-d);flex:none;width:112px}
   .m p{margin:0;font-size:18.5px;color:var(--ink);line-height:1.5}
   @media(max-width:600px){.m{flex-direction:column;gap:6px}.m .tm{width:auto}}
   /* ── faq ──────────────────────────────────────── */
@@ -410,6 +410,56 @@
     flex-wrap:wrap;justify-content:space-between}
   .soft h3{font-size:22px;margin-bottom:6px}
   .soft p{margin:0;color:var(--ink-2);font-size:16.5px;max-width:52ch}
+
+  /* ── tinted sections for variety ──────────────── */
+  .tint-warm{background:#F4ECE3}
+  .tint-cool{background:#EDEFF3}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tint-warm{background:#1A1611}
+    :root:not([data-theme="light"]) .tint-cool{background:#14171C}}
+  :root[data-theme="dark"] .tint-warm{background:#1A1611}
+  :root[data-theme="dark"] .tint-cool{background:#14171C}
+
+  /* ── marquee of what people bring ─────────────── */
+  .mq{background:var(--inv);color:var(--inv-fg);padding:clamp(30px,4vw,46px) 0;overflow:hidden;
+    position:relative}
+  .mq::before,.mq::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+  .mq::before{left:0;background:linear-gradient(90deg,var(--inv),transparent)}
+  .mq::after{right:0;background:linear-gradient(270deg,var(--inv),transparent)}
+  .mq-lbl{text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+    font-weight:700;color:var(--inv-fg3);margin-bottom:20px}
+  .track{display:flex;gap:0;width:max-content;animation:slide 46s linear infinite}
+  .track.rev{animation-direction:reverse;animation-duration:56s;margin-top:12px}
+  .mq:hover .track{animation-play-state:paused}
+  .track span{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
+    font-size:clamp(20px,2.7vw,31px);letter-spacing:-.02em;padding:0 26px;white-space:nowrap;
+    color:var(--inv-fg);opacity:.55;transition:opacity .3s,color .3s}
+  .track span:hover{opacity:1;color:var(--amber)}
+  .track span i{color:var(--amber);font-style:normal;opacity:.5;margin-left:26px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ── full-bleed breather ──────────────────────── */
+  .bleed{position:relative;height:min(60vh,520px);overflow:hidden;display:grid;place-items:center}
+  .bleed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%;
+    animation:drift 30s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:scale(1.02) translateY(0)}to{transform:scale(1.1) translateY(-10px)}}
+  .bleed::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at center,rgba(18,14,7,.72) 0%,rgba(18,14,7,.5) 62%,rgba(18,14,7,.66) 100%)}
+  .bleed .say{position:relative;z-index:2;text-align:center;color:#FFF8EA;
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(26px,4.6vw,52px);line-height:1.08;max-width:18ch;margin:0 auto;
+    text-shadow:0 2px 30px rgba(0,0,0,.4)}
+  .bleed .say em{font-style:normal;color:var(--amber);display:block}
+
+  /* ── ambient drift on dark glows ──────────────── */
+  @keyframes breathe{0%,100%{opacity:.85;transform:translateX(-50%) scale(1)}
+    50%{opacity:1;transform:translateX(-50%) scale(1.12)}}
+  .pq::before,.close::before{animation:breathe 14s ease-in-out infinite}
+  .hero::before{animation:breathe 18s ease-in-out infinite}
+
+  /* ── richer photo cards ───────────────────────── */
+  .br{min-height:400px}
+  .br .txt{padding:30px}
+  @media (prefers-reduced-motion: reduce){.track{animation:none}.bleed img{animation:none}}
 </style>
 
 </head>
@@ -466,6 +516,13 @@
     <p><strong>Yeah — same.</strong> You don't have to figure it all out alone. Bring the big thing, the small thing, or the thing you haven't said to anyone yet.</p>
   </section></div>
 
+
+  <div class="mq">
+    <div class="mq-lbl">What people bring me</div>
+    <div class="track"><span>should I quit?<i>&bull;</i></span><span>I feel behind<i>&bull;</i></span><span>is this working?<i>&bull;</i></span><span>I can't switch off<i>&bull;</i></span><span>there's nobody to ask<i>&bull;</i></span><span>am I the problem?<i>&bull;</i></span><span>what do I actually want?<i>&bull;</i></span><span>I'm exhausted<i>&bull;</i></span><span>should I take it?<i>&bull;</i></span><span>I keep starting over<i>&bull;</i></span><span>should I quit?<i>&bull;</i></span><span>I feel behind<i>&bull;</i></span><span>is this working?<i>&bull;</i></span><span>I can't switch off<i>&bull;</i></span><span>there's nobody to ask<i>&bull;</i></span><span>am I the problem?<i>&bull;</i></span><span>what do I actually want?<i>&bull;</i></span><span>I'm exhausted<i>&bull;</i></span><span>should I take it?<i>&bull;</i></span><span>I keep starting over<i>&bull;</i></span></div>
+    <div class="track rev"><span>should I quit?<i>&bull;</i></span><span>I feel behind<i>&bull;</i></span><span>is this working?<i>&bull;</i></span><span>I can't switch off<i>&bull;</i></span><span>there's nobody to ask<i>&bull;</i></span><span>am I the problem?<i>&bull;</i></span><span>what do I actually want?<i>&bull;</i></span><span>I'm exhausted<i>&bull;</i></span><span>should I take it?<i>&bull;</i></span><span>I keep starting over<i>&bull;</i></span><span>should I quit?<i>&bull;</i></span><span>I feel behind<i>&bull;</i></span><span>is this working?<i>&bull;</i></span><span>I can't switch off<i>&bull;</i></span><span>there's nobody to ask<i>&bull;</i></span><span>am I the problem?<i>&bull;</i></span><span>what do I actually want?<i>&bull;</i></span><span>I'm exhausted<i>&bull;</i></span><span>should I take it?<i>&bull;</i></span><span>I keep starting over<i>&bull;</i></span></div>
+  </div>
+
   <section class="nar">
     <div class="kick">How it usually starts</div>
     <h2 class="h2">Most people open like this.</h2>
@@ -520,6 +577,12 @@
     </div>
   </section></div>
 
+
+  <div class="bleed">
+    <img src="img/hero.jpg" alt="Four friends outdoors, laughing together mid-conversation">
+    <p class="say">The best part? <em>It starts with a simple conversation.</em></p>
+  </div>
+
   <div class="her-sec" id="about"><section class="w her-in">
     <div class="her-ph"><img src="img/pair.jpg" alt="Two people deep in conversation, laughing"></div>
     <div>
@@ -534,7 +597,7 @@
   </section></div>
 
   
-  <div class="moments"><section class="w">
+  <div class="moments tint-warm"><section class="w">
     <div class="kick">When people reach out</div>
     <h2 class="h2">You'll know the moment.</h2>
     <p class="sub">Nobody schedules the day they get stuck. These are the ones people tell me about afterwards.</p>
@@ -548,7 +611,7 @@
     </div>
   </section></div>
 
-  <section class="nar" id="faq">
+  <section class="nar" id="faq" style="max-width:none;width:100%"><div class="nar">
     <div class="kick">Honest answers</div>
     <h2 class="h2">The things people ask me quietly.</h2>
     <div class="faq">
@@ -559,7 +622,7 @@
       <details class="fq"><summary>Is 30 minutes really enough?</summary><p>It's enough to get clear on one thing and leave with a next step. Most people are surprised how much lifts just from saying it out loud to someone who isn't involved.</p></details>
       <details class="fq"><summary>How soon can we talk?</summary><p>Often the same day. If I'm free you'll see it on the calendar — and if it's urgent, say so when you book and I'll do my best to move things.</p></details>
     </div>
-  </section>
+  </div></section>
 
   <div class="portal" id="talk"><section class="w">
     <div class="kick">Talk to Deanna</div>
@@ -759,7 +822,7 @@
   if(cnt&&'IntersectionObserver' in window){
     var cio=new IntersectionObserver(function(en){en.forEach(function(e){ if(e.isIntersecting){
       var target=+cnt.dataset.count, t0=null;
-      function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/1100,1);
+      function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/650,1);
         var eased=1-Math.pow(1-p,3);
         cnt.textContent=Math.round(eased*target)+'+';
         if(p<1) requestAnimationFrame(step); }
