@@ -51,14 +51,12 @@ expenses properly. **Do not help her structure payments to avoid reporting.**
 
 ---
 
-## 2. Booking — YouCanBook.me + Stripe
-She already has `letstalk30.youcanbook.me`. YCBM supports **taking payment at the time of
-booking** via Stripe — this is the exact "connecting the payment to the scheduling" gap she
-couldn't solve.
-1. In YCBM → Settings → Payments → connect her Stripe account
-2. Create a booking type per duration (15/30/60) with the matching price
-3. Turn on confirmation + reminder emails
-4. Set the post-booking redirect to the room page
+## 2. Booking — Cal.com (free) + Stripe ♻️
+⚠️ **Her YouCanBook.me page returns HTTP 423 Locked** — it was never activated, which matches
+"I couldn't get it live." YCBM also charges ~$12/mo for payments.
+**Moved to Cal.com:** free plan includes Stripe payment acceptance, unlimited event types and
+100+ integrations at $0. Nothing was live on YCBM, so nothing to migrate.
+See **CALCOM-SETUP.md** for the exact event types, prices, buffers and room-link pattern.
 
 ---
 
