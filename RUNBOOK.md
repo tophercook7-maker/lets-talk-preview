@@ -97,19 +97,20 @@ text chat in one room**. One thing for her to keep up with.
 
 ---
 
-## 5. Google Business Profile — ⚠️ probably doesn't qualify
-Google requires **a location customers visit** or **travel to the customer**. Deanna is
-100% remote by choice. Purely-online businesses don't qualify and listings get suspended.
-**Don't build the plan on GBP.** What actually works for a remote coach:
+## 5. Google Business Profile — ✅ she qualifies (answered 09-07)
+Asked directly whether she'd ever meet someone in person, she said **yes**. That's the test —
+Google needs a place customers visit *or* a business that travels to them. She's a
+**service-area business** in Hot Springs. Full steps in **GBP-SETUP.md**.
+⚠️ Two things to settle first: the site never mentions in-person (a GBP claiming a local
+service area while the site reads online-only is what suspension reviews look at), and she'd
+be meeting strangers one-on-one — worth one conversation about public places.
+
+Still worth doing alongside it, GBP or not:
 1. **LinkedIn** — the #1 channel for a business coach. Her 20 years of turnarounds is the content.
 2. **Coaching directories** — Noomii, Coach.me, LifeCoachHub, Bark, Thumbtack
 3. **The site's own SEO** — already has schema, meta, canonical; submit to Search Console
 4. **Her own network + referrals** — fastest by far at this stage
 5. Facebook/Instagram business pages (she asked for the social push)
-
-*If she ever offers local in-person sessions in Hot Springs, GBP opens up legitimately.*
-
----
 
 ## 6. Reviews without meeting anyone ♻️
 She has no in-person contact, so no tap cards. Instead:

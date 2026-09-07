@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Let's Talk","description":"Talk to Deanna Kramar — business coach, mentor and trusted advisor with 20+ years. Advice, encouragement and a real conversation, with zero judgment.","url":"https://lets-talk2.me/","founder":{"@type":"Person","name":"Deanna Kramar","jobTitle":"Business Coach, Mentor & Trusted Advisor"},"areaServed":"Worldwide","availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://letstalk30.youcanbook.me/","serviceType":"Online chat, video or phone conversation"}}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Let's Talk","description":"Talk to Deanna Kramar — business coach, mentor and trusted advisor with 20+ years. Advice, encouragement and a real conversation, with zero judgment.","url":"https://lets-talk2.me/","founder":{"@type":"Person","name":"Deanna Kramar","jobTitle":"Business Coach, Mentor & Trusted Advisor"},"areaServed":["Worldwide",{"@type":"City","name":"Hot Springs","addressRegion":"AR"}],"availableChannel":{"@type":"ServiceChannel","serviceUrl":"{{BOOKURL}}","serviceType":"Online chat, video or phone conversation"}}
 </script>
 <style>
   :root{
@@ -676,21 +676,21 @@
         <h3>15 minutes</h3><div class="price">$25</div>
         <p class="d">One question, one decision, or a bit of encouragement before something big.</p>
         <ul><li>Type, talk or video</li><li>Same private room</li><li>Often available same day</li></ul>
-        <a class="btn ghost" href="https://letstalk30.youcanbook.me/" target="_blank" rel="noopener">Book 15 minutes</a>
+        <a class="btn ghost" href="{{BOOK15}}">Book 15 minutes</a>
       </div>
       <div class="plan feat">
         <div class="tag"><span class="dot"></span> Most people choose this</div>
         <h3>30 minutes</h3><div class="price">$40</div>
         <p class="d">Enough room to unpack it properly and leave with a clear next step.</p>
         <ul><li>Type, talk or video — switch anytime</li><li>Reminders so you don't forget</li><li><strong>Need longer? A full hour is $75</strong></li></ul>
-        <a class="btn" href="https://letstalk30.youcanbook.me/" target="_blank" rel="noopener">Book 30 minutes</a>
+        <a class="btn" href="{{BOOK30}}">Book 30 minutes</a>
       </div>
       <div class="plan">
         <div class="tag">Keep going</div>
         <h3>In your corner</h3><div class="price">$150 <small>/ month</small></div>
         <p class="d">Two full hours a month, plus the room stays open in between.</p>
         <ul><li>Two 1-hour sessions a month</li><li>Open chat between sessions</li><li>Cancel anytime — no future charges</li></ul>
-        <a class="btn ghost" href="https://letstalk30.youcanbook.me/" target="_blank" rel="noopener">Start this month</a>
+        <a class="btn ghost" href="{{BOOKMONTH}}">Start this month</a>
       </div>
     </div>
 
@@ -707,10 +707,10 @@
         <div data-n="4"><h4>Talk however suits</h4><p>Type, voice or video. Deanna's notified the moment you arrive.</p></div>
       </div>
     </div>
-    <div class="soft">
-      <div><h3>Not ready to book yet?</h3>
-      <p>Send her a question first — no charge, no pitch, no follow-up emails. Sometimes people just want to know who they'd be talking to before they commit to anything.</p></div>
-      <a class="btn ghost" href="mailto:?subject=A%20question%20before%20I%20book">Ask a question first</a>
+    <div class="soft" id="book">
+      <div><h3>{{BOOKHEAD}}</h3>
+      {{NOTICE}}<p>Send her a question first — no charge, no pitch, no follow-up emails. Sometimes people just want to know who they'd be talking to before they commit to anything.</p></div>
+      <a class="btn ghost" href="{{ASK}}">Ask a question first</a>
     </div>
 
   </section></div>

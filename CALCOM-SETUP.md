@@ -19,6 +19,21 @@ access, or Topher drives the rest on a screen-share. Everything below he can do 
 
 ---
 
+## Her answers, 2026-09-07 — what they lock in
+
+| Asked | She said | What it changes |
+|---|---|---|
+| Would you ever meet in person? | **Yes** | Google Business Profile is now legitimate — see `GBP-SETUP.md`. Was ruled out before. |
+| Do you want video? | **Yes** | Video stays the default in the room. All four event types keep the `session.html` link. |
+| Book ahead, or catch you now? | **Both** | Keep *Talk now* **and** the scheduled types. Both modes ship. |
+
+⚠️ **"Both" is the one to get right.** *Talk now* only works if it reflects real availability —
+she has a full-time job she travels for. Set its availability to a **narrow, honest window**
+(the evenings she's genuinely at a laptop), not her whole calendar. A "talk now" that nobody
+answers is worse than not offering it: the customer has already paid.
+
+---
+
 ## Event types to create (Topher builds these)
 
 | Event type | Duration | Price | Notes |

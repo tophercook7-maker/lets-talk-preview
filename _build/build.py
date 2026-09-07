@@ -11,6 +11,7 @@ site root, so the same template can also be rendered with base64 data URIs
 inline (that is how the shareable single-file preview was made).
 """
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +34,51 @@ IMAGES = {
     "VENT": "img/vent.jpg",
     "LIFE": "img/life.jpg",
 }
+
+# --- Booking ----------------------------------------------------------------
+# Every booking CTA on the page routes through here, so switching the site from
+# "not taking bookings yet" to live Cal.com is a change to this block alone.
+#
+# To go live: fill in the four CAL urls below and rerun. The CTAs then point at
+# Cal.com and the interim notice disappears on its own.
+CAL = {
+    "15":    "",   # https://cal.com/letstalk/talk-now
+    "30":    "",   # https://cal.com/letstalk/30min
+    "month": "",   # Stripe subscription link — Cal.com can't bill recurring
+    "base":  "",   # https://cal.com/letstalk
+}
+
+# Where "Ask a question first" goes until she has a business address.
+# Swap to her Google Voice number or a business inbox once those exist.
+ASK_EMAIL = "dlayne2556@gmail.com"
+
+BOOKING_LIVE = all(CAL[k] for k in ("15", "30", "month", "base"))
+
+if BOOKING_LIVE:
+    LINKS = {
+        "BOOK15": CAL["15"],
+        "BOOK30": CAL["30"],
+        "BOOKMONTH": CAL["month"],
+        "BOOKURL": CAL["base"],
+        "BOOKHEAD": "Not ready to book yet?",
+        "NOTICE": "",
+    }
+else:
+    # No live calendar yet, so the CTAs must not promise one. They scroll to the
+    # same block and say plainly what to do instead. Anything else is a dead end
+    # for whoever clicks it.
+    LINKS = {
+        "BOOK15": "#book",
+        "BOOK30": "#book",
+        "BOOKMONTH": "#book",
+        "BOOKURL": f"{SITE}/#book",
+        "BOOKHEAD": "Booking opens shortly",
+        "NOTICE": (
+            "<p><strong>The calendar goes live in the next few days.</strong> "
+            "Until then, send Deanna a note and she'll set a time with you "
+            "directly — same conversation, same price.</p>"
+        ),
+    }
 
 HEAD = f"""<!DOCTYPE html>
 <html lang="en">
@@ -70,10 +116,19 @@ def main():
     for key, path in IMAGES.items():
         html = html.replace("{{" + key + "}}", path)
 
-    left = [t for t in ("{{HERO}}", "{{DEANNA}}", "{{WORK}}", "{{VENT}}", "{{LIFE}}")
-            if t in html]
+    subject = "A question before I book"
+    links = dict(LINKS)
+    links["ASK"] = ("mailto:" + ASK_EMAIL + "?subject="
+                    + subject.replace(" ", "%20"))
+    for key, val in links.items():
+        html = html.replace("{{" + key + "}}", val)
+
+    left = re.findall(r"\{\{[A-Z0-9_]+\}\}", html)
     if left:
-        sys.exit("unfilled placeholders: " + ", ".join(left))
+        sys.exit("unfilled placeholders: " + ", ".join(sorted(set(left))))
+
+    if "youcanbook.me" in html:
+        sys.exit("dead YouCanBook.me link is back in the template")
 
     # The template carries head content (title, fonts, schema, styles) and body
     # markup in one file. The single </style> is the seam between them.
