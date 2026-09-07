@@ -19,7 +19,7 @@ she reports it, Topher never holds it. Sit with her (screen-share or in person) 
 2. Country: United States. Business type: **Individual / Sole proprietor**
    *(She doesn't need an LLC to start. She can add one later without losing the account.)*
 3. Business description: **"One-on-one coaching and mentoring conversations, delivered online."**
-4. Business website: **https://www.lets-talk2.com** (or the GitHub Pages URL until the domain is pointed)
+4. Business website: **https://www.lets-talk2.me** (or the GitHub Pages URL until the domain is pointed)
 5. Statement descriptor — what shows on a customer's card statement: **LETS TALK**
    *(Keep it recognisable or people file chargebacks because they don't recognise the charge.)*
 6. Support phone: her Google Voice number (set that up first — see RUNBOOK §4)

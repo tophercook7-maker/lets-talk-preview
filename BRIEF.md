@@ -1,4 +1,4 @@
-# Deann — lets-talk2.com — Build Brief
+# Deann — lets-talk2.me — Build Brief
 Source: Starbucks conversation, recorded 2026-09-06 09:09 AM (watch memo, first ~20 min).
 Lead source: **she saw Topher's ad** ("I'm glad you ran that ad and I saw it").
 
@@ -37,7 +37,7 @@ Lead source: **she saw Topher's ad** ("I'm glad you ran that ad and I saw it").
 >
 > Let's Talk… Set up your appointment today. **It's time to invest in YOU.**
 
-⚠️ Bugs in her draft to fix: the footer link is mangled (`llets-talk2.comets-talk2.com`); hero image looks like stock/AI; no pricing anywhere; QR code present but unlabeled.
+⚠️ Bugs in her draft to fix: the footer link is mangled (`llets-talk2.meets-talk2.com`); hero image looks like stock/AI; no pricing anywhere; QR code present but unlabeled.
 
 ## 🎯 THE ACTUAL TECHNICAL GAP
 Her "three dots" = **website → YouCanBook.me scheduling → payment.** YouCanBook.me *does* support paid bookings via **Stripe** — that's the connection she couldn't make. This is the single highest-value thing to solve for her.
@@ -47,7 +47,7 @@ Her "three dots" = **website → YouCanBook.me scheduling → payment.** YouCanB
 - Self-described not tech-savvy: *"I'm not the savviest in the world."*
 
 ## What she asked for
-1. **Website** — she has lets-talk2.com on **Squarespace** (registered 2025-07-16, expires 2027-07-16, Google/Squarespace nameservers). Currently shows only *"We're under construction."*
+1. **Website** — she has lets-talk2.me on **Squarespace** (registered 2025-07-16, expires 2027-07-16, Google/Squarespace nameservers). Currently shows only *"We're under construction."*
 2. **Booking / scheduling** — she got it partly set up on Squarespace but couldn't get it live.
 3. **Payments wired to the booking** — *"connecting the payment to the scheduling is where it got stuck."* This is her core frustration: three dots she can't connect (site → scheduling → payment).
 4. **QR code** — *"I do want like a QR code so I can throw that out there."*

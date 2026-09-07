@@ -30,7 +30,7 @@ access, or Topher drives the rest on a screen-share. Everything below he can do 
 
 **Per event type:**
 - Location → **Link meeting / custom** → the room page:
-  `https://www.lets-talk2.com/session.html?room={UID}` *(Cal.com substitutes the booking UID,
+  `https://www.lets-talk2.me/session.html?room={UID}` *(Cal.com substitutes the booking UID,
   so every booking gets its own private room)*
 - **Payment**: Apps → Stripe → set price → **require payment before the booking confirms**
 - **Buffer**: 10 min after each session (she'll need it, and it prevents back-to-backs)
