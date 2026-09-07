@@ -58,14 +58,18 @@ Copy each link. They replace the `letstalk30.youcanbook.me` hrefs in `index.html
 ---
 
 ## Step 4 — connect it to booking
-In **YouCanBook.me → Settings → Payments → connect Stripe** (her account). Then create a
-booking type per duration at the matching price. This is the "connecting the payment to the
-scheduling" problem she couldn't solve — YCBM takes the payment at the moment of booking, so
-there's one flow instead of two.
+⚠️ We moved off YouCanBook.me — her page was never activated (`HTTP 423 Locked`) and YCBM
+charges ~$12/mo just to take payments. **Cal.com's free plan includes Stripe.** See
+**CALCOM-SETUP.md** for the event types.
 
-**Either** run payments through YCBM (simplest — one system, calendar + payment together)
-**or** through Stripe payment links and let YCBM handle only the calendar. Don't do both for
-the same session or people get charged twice. **Recommendation: let YCBM take the payment.**
+In **Cal.com → Apps → Stripe → Install → authorize** (her Stripe account). Then set a price on
+each event type and tick **require payment before the booking confirms**. That solves the
+"connecting the payment to the scheduling" problem she couldn't crack — one flow, not two.
+
+So: **Cal.com takes the payment at booking.** The Stripe payment links from Step 3 are only
+for the **$150/mo membership** (a subscription, which Cal.com doesn't bill) and as a fallback
+if someone wants to pay without booking a time. Never put both a Cal.com price and a payment
+link on the same session or people get charged twice.
 
 ---
 

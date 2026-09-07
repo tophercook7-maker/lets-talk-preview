@@ -9,13 +9,28 @@ Topher's first **ready-made business** package — steps marked ♻️ are reusa
 |---|---|
 | Website (design, copy, her photo, custom photography) | ✅ live |
 | Hosting (GitHub Pages, free, HTTPS) | ✅ live |
+| **Domain — `lets-talk2.me`** | ✅ **live at https://lets-talk2.me** |
 | Prices decided ($25 / $40 / $150, $75 hr upsell) | ✅ |
-| Booking (YouCanBook.me) | ⚠️ exists, unpaid, not wired |
-| Payments | ❌ not started |
-| Private room (chat/voice/video) | ❌ not started |
+| Private room (chat/voice/video — Jitsi) | ✅ built, `session.html` |
 | Legal pages | ✅ built (required by Stripe) |
-| Business phone | ❌ not started |
-| Domain pointed at the site | ⏳ needs her Squarespace access |
+| Booking (Cal.com) | ⏳ needs her — account + calendar connect |
+| Payments (Stripe, her name) | ⏳ waiting on her |
+| Business phone (Google Voice) | ❌ not started |
+
+### Domain — how it ended up on `.me`
+`lets-talk2.com` sits in **her** Squarespace account and both invites she sent granted access
+to `letstalk-community.com` instead, so it was never transferable without another round-trip.
+Registered **`lets-talk2.me` on Porkbun** (Topher's account, DNS under our control, expires
+2027-09-07, auto-renew on). It reads as *"let's talk **to me**"* — the `2` becomes the joke
+instead of looking like a second attempt.
+
+DNS: four A records at the apex (`185.199.108–111.153`) + `www` CNAME →
+`tophercook7-maker.github.io`. Porkbun's parking records were removed. GitHub Pages issued
+the certificate on **2026-09-07**; `www` redirects to the apex.
+
+> ⚠️ If she ever *does* hand over `lets-talk2.com`, don't move the site — point the `.com` at
+> the same four A records and let it redirect here. Changing the live URL after Stripe and
+> Cal.com are wired to it means redoing both.
 
 ---
 
