@@ -9,7 +9,7 @@ Lead source: **she saw Topher's ad** ("I'm glad you ran that ad and I saw it").
 - Topher promised her a first look **"in the next four hours-ish"** from ~10:30 AM Sept 6.
 
 ## Who she is — ✅ CONFIRMED from her Google Sites draft
-- **Deanna Layne** — **business coach, mentor, and trusted advisor, 20+ years of experience.**
+- **Deanna Kramar** — **business coach, mentor, and trusted advisor, 20+ years of experience.**
 - Brand: **"LET'S TALK"** — remote coaching/advisory conversations.
 - **Existing booking link (LIVE): https://letstalk30.youcanbook.me/** — YouCanBook.me, "30" = 30-minute sessions.
 - Her draft site: Google Sites (unpublished) at `sites.google.com/u/0/d/12GIy0KfzzvVupN5tx2LPG5pVcCh2BvYo` — screenshots saved to `~/Desktop/00_Inbox - Review/deanna-current-site-*.png`.
