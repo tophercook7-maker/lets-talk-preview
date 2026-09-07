@@ -1,83 +1,67 @@
-Subject: Your site's live — plus one 20-minute thing only you can do
+Hey Deanna — your site is live:
 
-Hi Deanna,
+https://lets-talk2.me
 
-Your site is up: https://lets-talk2.me
+Quick note on the address: I couldn't get into lets-talk2.com. Both
+invites came through for the community site instead, and I didn't want
+you chasing it before your trip. So I put you on lets-talk2.me — reads
+as "let's talk to me." If you want the .com later we can point it at
+this same site, nothing gets rebuilt.
 
-About the address — I couldn't get into lets-talk2.com. Both invites came
-through for the community site instead of that one, and I didn't want you
-chasing it right before your trip. So I put you on lets-talk2.me, which reads
-as "let's talk to me." If you'd rather use the .com later, we can point it at
-this same site and nothing has to be rebuilt.
+Have a look and send me any changes all at once when you can. Every bit
+of it is changeable — words, colors, photos, prices.
 
-Now the one piece I can't do for you, because it has to be your name and your
-bank account on it. About 20 minutes, once. After that I take over and you
-don't have to touch any of it.
+WHAT'S LEFT
 
-This is the exact thing you told me you couldn't get working — the payment and
-the calendar talking to each other. When it's done, someone picks a time, pays,
-and it's booked. You don't chase anybody for money.
+One 20-minute thing, and it's the part you told me you couldn't crack:
+getting the payment and the calendar to talk to each other. When this is
+done, someone picks a time, pays, and it's booked. You never chase
+anybody for money.
 
+It has to be you who sets it up, because it's your name and your bank
+account on it. After that I take it over and you don't touch it again.
 
-1) STRIPE — about 15 minutes. This is what takes card payments.
-
-   Go to stripe.com and click "Start now." Sign up with your email.
-
+1) STRIPE — about 15 min. This takes the card payments.
+   stripe.com, click "Start now," sign up with your email.
    - Country: United States
-   - Business type: Individual / Sole proprietor  (you don't need an LLC)
+   - Business type: Individual / Sole proprietor (you don't need an LLC)
    - What you do: "One-on-one coaching and mentoring conversations,
      delivered online."
    - Website: https://lets-talk2.me
    - What shows on someone's card statement: LETS TALK
-   - Then your bank account and routing number, so it can pay you.
+   - Then your bank + routing number so it can pay you.
 
-   Have handy: your address, date of birth, Social Security number, and your
-   bank details. Stripe asks because it's a real payment account and it's the
-   same information any bank would ask for.
+   Have handy: address, date of birth, Social Security number, bank info.
+   Stripe asks because it's a real payment account — same as any bank.
+   Don't send me any of that. Type it in yourself.
 
-   Please don't send any of that to me. Type it in yourself.
+2) CAL.COM — about 5 min. This is your calendar and booking.
+   cal.com, sign up with the same email. Username "letstalk" if it's free.
+   - It'll ask to connect your calendar — say yes, Google. This part
+     matters: it means the site only offers people times you're actually
+     free.
+   - Then Apps -> search Stripe -> Install -> Connect. That's the click
+     that ties the two together.
 
+3) TEXT ME THE CAL.COM EMAIL AND PASSWORD. That one only, not Stripe.
+   Your Stripe login stays yours — it's got your Social and your bank on
+   it and I have no business in there.
 
-2) CAL.COM — about 5 minutes. This is your calendar and booking.
+   With the Cal.com login I'll set up your session lengths and prices, the
+   buffer between calls, the question people answer when they book, and
+   your hours. Then I'll connect it to the site and test the whole thing
+   with a test card before a single real dollar moves. Change that
+   password whenever you want once I tell you it's done.
 
-   Go to cal.com and sign up with the same email.
-   Pick the username "letstalk" if it's available.
+If it's easier to do this after you're back on the 26th, that's fine —
+just say so and I'll hold. Nothing breaks by waiting.
 
-   - It will ask to connect your calendar. Say yes, Google. This part matters:
-     it means the site only ever offers people times you're genuinely free.
-   - Then go to Apps, search for Stripe, click Install, then Connect.
-     That's the click that ties the two together.
+Three quick ones whenever you get a second, yes or no is plenty:
+1. Would you ever meet someone in person, or is this all remote? (decides
+   whether I can get you listed on Google)
+2. Do you want video calls, or keep it to voice and chat?
+3. Do you want people booking ahead, or catching you right then when
+   you're free? Or both?
 
-
-3) SEND ME THE CAL.COM EMAIL AND PASSWORD. Text is fine.
-
-   That one only — not Stripe. Your Stripe login stays yours; it has your
-   Social and your bank on it and I have no business in there.
-
-   With the Cal.com login I'll set up your three session lengths and prices,
-   the buffer between calls, the question people answer when they book
-   ("what would you like to talk about?"), and your available hours. Then I'll
-   connect it to the site and test the whole thing end to end with a test card
-   before a single real dollar moves.
-
-   Change that Cal.com password whenever you like once I tell you it's done.
-
-
-That's the whole ask. You do 20 minutes, I do the rest.
-
-If it's easier to do this after you're back on the 26th, that's completely
-fine — just say so and I'll hold. Nothing breaks by waiting.
-
-Talk soon,
-Topher
-
-Text or email is best for me, either one.
-
-
-P.S. — Three quick ones whenever you get a second. Yes or no is plenty:
-
-  1. Would you ever meet someone in person, or is this all remote?
-     (It decides whether I can get you listed on Google.)
-  2. Do you want video calls, or keep it to voice and chat?
-  3. Do you want people booking a time ahead, or being able to catch you
-     right then when you're free? Or both?
+Text or email, either one works for me.
+— Topher
