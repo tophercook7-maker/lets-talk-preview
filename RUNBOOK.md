@@ -149,3 +149,20 @@ What this becomes for the next client:
 what this is worth once it's a repeatable system. Suggested next-client pricing: setup fee
 plus a small monthly for hosting/changes (see [[web-design-lane]] and the We Care $199/mo
 model already floated).
+
+---
+
+## Rebuilding the site
+`index.html` is generated — don't hand-edit it, the next build overwrites you.
+
+```
+python3 _build/build.py
+```
+
+Edit **`_build/lets-talk-template.html`** for markup, copy or styles; edit the `HEAD` block
+in **`_build/build.py`** for the title, description, canonical or social-preview tags.
+The `{{HERO}} {{DEANNA}} {{WORK}} {{VENT}} {{LIFE}}` placeholders are image slots — the build
+fails loudly if an image is missing or a slot goes unfilled, rather than shipping a broken page.
+
+`session.html`, `terms.html`, `privacy.html` and `refunds.html` are hand-maintained; they have
+no template.
