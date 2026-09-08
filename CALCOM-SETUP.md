@@ -54,6 +54,10 @@ answers is worse than not offering it: the customer has already paid.
   **"What would you like to talk about?"** (long text). She walks in already knowing the topic.
 - **Confirmation + reminder emails**: on. Reminder 1 hour before.
 - **Cancellation policy** text: link `refunds.html`
+- ⚠️ **Reschedule window: 24 hours.** Set this per event type so Cal.com actually
+  enforces it — if the booking page still lets people move a session two hours out,
+  the written policy is fiction and she'll be arguing it by text. *Talk now* is the
+  exception: it's booked and used the same hour, so the window never applies.
 
 ---
 
