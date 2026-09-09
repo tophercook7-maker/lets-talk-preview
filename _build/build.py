@@ -27,9 +27,10 @@ DESC = (
 )
 
 # Image slots. Values are paths relative to the site root.
+# Her photo was removed at her request (day-job discretion) — img/deanna.jpg
+# is still on disk if she ever changes her mind.
 IMAGES = {
     "HERO": "img/hero.jpg",
-    "DEANNA": "img/deanna.jpg",
     "WORK": "img/work.jpg",
     "VENT": "img/vent.jpg",
     "LIFE": "img/life.jpg",
