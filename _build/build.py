@@ -49,9 +49,9 @@ CAL = {
     "base":  "",   # https://cal.com/letstalk
 }
 
-# Where "Ask a question first" goes until she has a business address.
-# Swap to her Google Voice number or a business inbox once those exist.
-ASK_EMAIL = "dlayne2556@gmail.com"
+# Where "Ask a question first" goes. This is the business account, not her
+# personal Gmail — that was on the live site and is exactly what gets scraped.
+ASK_EMAIL = "kramardee@gmail.com"
 
 BOOKING_LIVE = all(CAL[k] for k in ("15", "30", "month", "base"))
 
