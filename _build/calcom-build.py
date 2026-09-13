@@ -20,6 +20,10 @@ import urllib.request
 
 API = "https://api.cal.com/v2"
 VERSION = "2026-06-12"
+# Schedules live on an older API version than event types. Asking for
+# 2026-06-12 there returns "Cannot GET /v2/schedules", which reads like a
+# wrong path but is really a wrong version.
+SCHEDULE_VERSION = "2024-06-11"
 KEY = os.environ.get("CALCOM_API_KEY", "").strip()
 APPLY = "--apply" in sys.argv
 
@@ -68,13 +72,17 @@ WANTED = [
 COMMON = {
     "afterEventBuffer": 10,
     "locations": [{"type": "link", "link": ROOM, "public": True}],
+    # Cal.com custom fields need field:"custom" and one of its own type names —
+    # there is no "textarea"; the long-answer one is "longText".
     "bookingFields": [{
-        "type": "textarea",
+        "field": "custom",
+        "type": "longText",
         "slug": "what-to-talk-about",
         "label": "What would you like to talk about?",
         "required": True,
         "placeholder": "A sentence is plenty. It just means we don't spend "
                        "your first five minutes getting oriented.",
+        "maxLength": 1000,
     }],
 }
 
@@ -87,6 +95,12 @@ def call(method, path, body=None):
             "Authorization": f"Bearer {KEY}",
             "cal-api-version": VERSION,
             "Content-Type": "application/json",
+            # Cal.com's API sits behind Cloudflare, which rejects urllib's default
+            # user-agent with "error code: 1010" — a 403 that looks like a bad key
+            # but isn't. Any browser-shaped UA gets through.
+            "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                           "AppleWebKit/537.36 (KHTML, like Gecko) "
+                           "Chrome/152.0.0.0 Safari/537.36"),
         },
     )
     try:
