@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The room page is per-booking and reached only after payment.
+# No reason for it in an index, and it would look broken out of context.
+Disallow: /session.html
+
+Sitemap: https://lets-talk2.me/sitemap.xml

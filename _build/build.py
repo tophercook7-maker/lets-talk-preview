@@ -42,18 +42,27 @@ IMAGES = {
 #
 # To go live: fill in the four CAL urls below and rerun. The CTAs then point at
 # Cal.com and the interim notice disappears on its own.
+# Real URLs, confirmed live. The site still does NOT point at them — see
+# PRICES_SET below.
 CAL = {
-    "15":    "",   # https://cal.com/letstalk/talk-now
-    "30":    "",   # https://cal.com/letstalk/30min
-    "month": "",   # Stripe subscription link — Cal.com can't bill recurring
-    "base":  "",   # https://cal.com/letstalk
+    "15":    "https://cal.com/letstalk2me/talk-now",
+    "30":    "https://cal.com/letstalk2me/30min",
+    "month": "",   # Stripe subscription link — Cal.com can't bill recurring.
+                   # _build/stripe-build.py prints this once Dee's Stripe exists.
+    "base":  "https://cal.com/letstalk2me",
 }
+
+# THE SAFETY CATCH. The Cal.com event types have no prices on them until her
+# Stripe is connected, so pointing the site at Cal.com now would let every
+# visitor book Dee for free. Flip this to True only after prices are live and
+# a test booking has actually taken payment.
+PRICES_SET = False
 
 # Where "Ask a question first" goes. This is the business account, not her
 # personal Gmail — that was on the live site and is exactly what gets scraped.
 ASK_EMAIL = "kramardee@gmail.com"
 
-BOOKING_LIVE = all(CAL[k] for k in ("15", "30", "month", "base"))
+BOOKING_LIVE = PRICES_SET and all(CAL[k] for k in ("15", "30", "month", "base"))
 
 if BOOKING_LIVE:
     LINKS = {
