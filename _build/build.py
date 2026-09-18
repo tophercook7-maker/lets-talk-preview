@@ -19,11 +19,15 @@ TEMPLATE = os.path.join(ROOT, "_build", "lets-talk-template.html")
 OUT = os.path.join(ROOT, "index.html")
 
 SITE = "https://lets-talk2.me"
-TITLE = "Let's Talk with Deanna"
+# Her name stays off the shared link card and the browser tab — she needs to
+# be discreet because of her day job. This is what shows in iMessage,
+# Facebook and search results.
+TITLE = "Let's Talk"
 BLURB = "Pull up a chair. Tell me what's going on."
 DESC = (
-    "Talk to Deanna Kramar — career advice, encouragement, or simply someone "
-    "who will listen without judgment. 15 min $25 · 30 min $40 · monthly $150."
+    "Life coaching and mentoring — career advice, encouragement, or simply "
+    "someone who will listen without judgment. 15 min $25 · 30 min $40 · "
+    "monthly $150."
 )
 
 # Image slots. Values are paths relative to the site root.
@@ -103,7 +107,7 @@ HEAD = f"""<!DOCTYPE html>
 <meta property="og:title" content="{TITLE}">
 <meta property="og:description" content="{BLURB}">
 <meta property="og:image" content="{SITE}/img/hero.jpg">
-<meta property="og:image:alt" content="Deanna Kramar, mid-conversation, listening.">
+<meta property="og:image:alt" content="Friends outdoors, mid-conversation, laughing together.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{TITLE}">
 <meta name="twitter:description" content="{BLURB}">
