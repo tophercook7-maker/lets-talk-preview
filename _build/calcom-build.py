@@ -42,9 +42,11 @@ WANTED = [
         "lengthInMinutes": 15,
         "description": "A quick conversation — one question, one decision, or "
                        "some encouragement when you need it now.",
-        "minimumBookingNotice": 15,
-        # Hidden on purpose: it promises a reply within 15 minutes, and nobody
-        # should be able to buy that until she's confirmed she can answer it.
+        # 2 hours, not 15 minutes. Once the site went live this became
+        # genuinely bookable (hidden only unlists it; direct links work), and
+        # 15 minutes' notice meant a stranger could start her phone ringing
+        # mid-meeting at her day job. Two hours keeps "soon" without the ambush.
+        "minimumBookingNotice": 120,
         "hidden": True,
     },
     {
