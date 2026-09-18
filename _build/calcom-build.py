@@ -27,7 +27,12 @@ SCHEDULE_VERSION = "2024-06-11"
 KEY = os.environ.get("CALCOM_API_KEY", "").strip()
 APPLY = "--apply" in sys.argv
 
-ROOM = "https://lets-talk2.me/session.html?room={UID}"
+# Cal.com does NOT substitute variables in a custom location link — {UID} rendered
+# literally on the booking page, which meant every booking shared one room and any
+# past customer kept a working link into future sessions. Cal Video issues a unique
+# room per booking, does video + chat, and camera-off is a voice call, so the
+# "one link, talk however you like" promise still holds.
+ROOM = {"type": "integration", "integration": "cal-video"}
 
 # What we want to exist. Prices go on afterwards, by hand, once Stripe is live.
 WANTED = [
@@ -71,7 +76,7 @@ WANTED = [
 
 COMMON = {
     "afterEventBuffer": 10,
-    "locations": [{"type": "link", "link": ROOM, "public": True}],
+    "locations": [ROOM],
     # Cal.com custom fields need field:"custom" and one of its own type names —
     # there is no "textarea"; the long-answer one is "longText".
     "bookingFields": [{
