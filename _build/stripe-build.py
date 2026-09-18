@@ -63,24 +63,34 @@ def main():
         sys.exit("Set STRIPE_API_KEY first (see the docstring).")
 
     status, acct = call("GET", "/account")
-    if status != 200:
+    if status == 403:
+        # A restricted key without "Accounts read" can still create products and
+        # prices. Losing the health check is a shame, not a blocker — say what
+        # we can't see rather than refusing to run.
+        print("!! This key can't read the account, so I can't verify that Stripe")
+        print("   onboarding is finished. Check the dashboard for an orange")
+        print("   'finish setting up' banner before trusting a real payment.\n")
+        acct = {}
+    elif status != 200:
         sys.exit(f"Couldn't authenticate ({status}): {json.dumps(acct)[:300]}")
 
     live = not KEY.startswith(("sk_test", "rk_test"))
-    print(f"Account: {acct.get('business_profile', {}).get('name') or acct.get('id')}")
-    print(f"Email:   {acct.get('email')}")
-    print(f"Mode:    {'LIVE' if live else 'TEST'}")
+    print(f"Mode: {'LIVE' if live else 'TEST'}")
+    if acct:
+        print(f"Account: {acct.get('business_profile', {}).get('name') or acct.get('id')}")
+        print(f"Email:   {acct.get('email')}")
 
     # An account that hasn't finished onboarding will happily hold products and
     # take nothing. Say so plainly rather than letting it look finished.
     charges = acct.get("charges_enabled")
     payouts = acct.get("payouts_enabled")
-    print(f"Charges enabled: {charges}   Payouts enabled: {payouts}")
+    if acct:
+        print(f"Charges enabled: {charges}   Payouts enabled: {payouts}")
     due = (acct.get("requirements") or {}).get("currently_due") or []
     if due:
         print(f"\n!! Stripe still wants: {', '.join(due[:8])}")
         print("   Until those are done this account cannot take money.")
-    if not charges:
+    if acct and not charges:
         print("\n!! charges_enabled is false — onboarding is unfinished.")
     print()
 
@@ -91,9 +101,27 @@ def main():
         print(f"  - {n}")
     print()
 
-    if MEMBERSHIP_NAME in existing:
-        print(f"'{MEMBERSHIP_NAME}' already exists — nothing to create.")
-        return
+    # A previous run can die between product, price and link — a restricted key
+    # that may write products but not prices does exactly that. So resume from
+    # whatever already exists rather than declaring the job done.
+    prod = existing.get(MEMBERSHIP_NAME)
+    price = None
+    if prod:
+        print(f"'{MEMBERSHIP_NAME}' already exists ({prod['id']}) — resuming.")
+        st, pr = call("GET", f"/prices?product={prod['id']}&active=true&limit=10")
+        for cand in (pr.get("data") or []):
+            if cand.get("unit_amount") == MEMBERSHIP_CENTS and cand.get("recurring"):
+                price = cand
+                print(f"  price already there: {price['id']}")
+                break
+        st, lk = call("GET", "/payment_links?limit=100")
+        for l in (lk.get("data") or []):
+            if l.get("active") and l.get("url"):
+                si, items = call("GET", f"/payment_links/{l['id']}/line_items?limit=5")
+                for it in (items.get("data") or []):
+                    if (it.get("price") or {}).get("product") == prod["id"]:
+                        print(f"\n  Everything already built. Payment link:\n  {l['url']}")
+                        return
 
     if not APPLY:
         print("DRY RUN — would create:")
@@ -103,19 +131,21 @@ def main():
         print("\nRe-run with --apply to write.")
         return
 
-    status, prod = call("POST", "/products",
-                        {"name": MEMBERSHIP_NAME, "description": MEMBERSHIP_DESC,
-                         "url": SITE})
-    if status != 200:
-        sys.exit(f"product failed: {json.dumps(prod)[:300]}")
-    print(f"created product {prod['id']}")
+    if not prod:
+        status, prod = call("POST", "/products",
+                            {"name": MEMBERSHIP_NAME, "description": MEMBERSHIP_DESC,
+                             "url": SITE})
+        if status != 200:
+            sys.exit(f"product failed: {json.dumps(prod)[:300]}")
+        print(f"created product {prod['id']}")
 
-    status, price = call("POST", "/prices",
-                         {"product": prod["id"], "unit_amount": MEMBERSHIP_CENTS,
-                          "currency": "usd", "recurring[interval]": "month"})
-    if status != 200:
-        sys.exit(f"price failed: {json.dumps(price)[:300]}")
-    print(f"created price   {price['id']}  ${MEMBERSHIP_CENTS/100:.2f}/mo")
+    if not price:
+        status, price = call("POST", "/prices",
+                             {"product": prod["id"], "unit_amount": MEMBERSHIP_CENTS,
+                              "currency": "usd", "recurring[interval]": "month"})
+        if status != 200:
+            sys.exit(f"price failed: {json.dumps(price)[:300]}")
+        print(f"created price   {price['id']}  ${MEMBERSHIP_CENTS/100:.2f}/mo")
 
     form = {
         "line_items[0][price]": price["id"],
