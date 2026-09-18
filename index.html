@@ -505,6 +505,33 @@
   .build{font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--inv-fg2);
     max-width:30ch;margin:14px auto 0}
   .build b{color:var(--amber);font-weight:700}
+
+  /* Dee asked for everything below the pitch to be click-to-read, so people
+     "identify with key phrases and book" rather than wade through it. */
+  .acc-wrap{display:grid;gap:12px;margin-top:34px;max-width:860px;margin-inline:auto}
+  .acc{background:var(--paper);border:1px solid var(--rule);border-radius:20px;
+    padding:6px 4px;transition:border-color .25s}
+  .acc[open]{border-color:var(--amber)}
+  .acc summary{cursor:pointer;list-style:none;padding:20px 24px;display:grid;gap:4px;
+    position:relative;padding-right:56px}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary::after{content:"";position:absolute;right:26px;top:27px;
+    width:12px;height:12px;border-right:2.5px solid var(--amber);
+    border-bottom:2.5px solid var(--amber);transform:rotate(45deg);
+    transition:transform .25s}
+  .acc[open] summary::after{transform:rotate(-135deg)}
+  .acc-t{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
+    font-size:clamp(19px,2.1vw,22px);letter-spacing:-.015em;color:var(--ink)}
+  .acc-b{font-size:15.5px;color:var(--ink-3);line-height:1.45}
+  .acc summary:hover .acc-t{color:var(--amber-d)}
+  .acc-in{padding:4px 24px 26px}
+  /* The bundled sections carry their own full-bleed padding and dark grounds —
+     neutralise that inside an accordion row or they break out of the card. */
+  .acc-in > .w, .acc-in > .nar{padding:0;max-width:none;width:auto}
+  .acc-in .her-in{max-width:none;margin:0}
+  .acc-in .thread{margin-top:0}
+  .acc-in .rules{margin-top:0}
+  @media (prefers-reduced-motion: reduce){.acc summary::after{transition:none}}
 </style>
 </head>
 <body>
@@ -598,31 +625,28 @@
     </div>
   </section>
 
-  <section class="nar">
-    <div class="kick">How it usually starts</div>
-    <h2 class="h2">Most people open like this.</h2>
-    <div class="thread">
-      <div class="msg them"><div class="lbl">You</div><div class="bubble">I've already talked to my friends about it… I think they're tired of hearing it.</div></div>
-      <div class="msg her"><div class="lbl"><span class="av"></span>Dee</div><div class="bubble">They're not tired of you — they're just too close to it. Friends love you, so they have opinions about the outcome. <strong>I don't. I only care what you want.</strong></div></div>
-      <div class="msg them"><div class="lbl">You</div><div class="bubble">Everyone else seems to have it figured out.</div></div>
-      <div class="msg her"><div class="lbl"><span class="av"></span>Dee</div><div class="bubble">They really don't. The ones who get there — and stay there — almost never did it alone. <strong>They had someone in their corner.</strong> That's all this is.</div></div>
-      <div class="msg them"><div class="lbl">You</div><div class="bubble">Is this even worth your time? It's not a business thing, it's just… life.</div></div>
-      <div class="msg her"><div class="lbl"><span class="av"></span>Dee</div><div class="bubble">It's all one thread. Work bleeds into life and life bleeds into work. <strong>Bring whichever end of it you're holding.</strong></div></div>
-    </div>
-  </section>
-
-
-  
   <div class="pq"><section class="nar">
     <span class="mk">&ldquo;</span>
     <blockquote>You don't need a crisis to deserve half an hour of someone's full attention.</blockquote>
     <cite>— Dee</cite>
   </section></div>
 
-  <div class="trust"><section class="w">
-    <div class="kick">Before you reach out</div>
-    <h2 class="h2">How I work.</h2>
-    <p class="sub">No programme, no packages you have to grow into. Just a few things I hold to, every single time.</p>
+  <section class="nar" id="more" style="max-width:none;width:100%"><div class="nar">
+    <div class="kick">If you want the detail</div>
+    <h2 class="h2">Read as much or as little as you like.</h2>
+    <p class="sub">Tap any of these to open it. Or skip straight to booking — that works too.</p>
+    <div class="acc-wrap">
+      <details class="acc"><summary><span class="acc-t">How a conversation usually starts</span><span class="acc-b">The kind of thing people open with, and what I say back.</span></summary>
+        <div class="acc-in"><div class="thread">
+      <div class="msg them"><div class="lbl">You</div><div class="bubble">I've already talked to my friends about it… I think they're tired of hearing it.</div></div>
+      <div class="msg her"><div class="lbl"><span class="av"></span>Dee</div><div class="bubble">They're not tired of you — they're just too close to it. Friends love you, so they have opinions about the outcome. <strong>I don't. I only care what you want.</strong></div></div>
+      <div class="msg them"><div class="lbl">You</div><div class="bubble">Everyone else seems to have it figured out.</div></div>
+      <div class="msg her"><div class="lbl"><span class="av"></span>Dee</div><div class="bubble">They really don't. The ones who get there — and stay there — almost never did it alone. <strong>They had someone in their corner.</strong> That's all this is.</div></div>
+      <div class="msg them"><div class="lbl">You</div><div class="bubble">Is this even worth your time? It's not a business thing, it's just… life.</div></div>
+      <div class="msg her"><div class="lbl"><span class="av"></span>Dee</div><div class="bubble">It's all one thread. Work bleeds into life and life bleeds into work. <strong>Bring whichever end of it you're holding.</strong></div></div></div>
+      </details>
+      <details class="acc"><summary><span class="acc-t">How I work — six things I hold to</span><span class="acc-b">What happens, what doesn't, and what you're never expected to do.</span></summary>
+        <div class="acc-in"><p class="sub">No programme, no packages you have to grow into. Just a few things I hold to, every single time.</p>
     <div class="rules">
       <div class="rule"><span class="no">One</span><h3>It stays between us</h3>
         <p>What you say isn't repeated, shared, or brought up later — not to anyone, not even as an anonymous example. That's the whole basis of it.</p></div>
@@ -636,19 +660,10 @@
         <p>Come once. Come every week. Come back in a year when things get loud again. There's no package you're failing to complete.</p></div>
       <div class="rule"><span class="no">Six</span><h3>I'm not a therapist — and I'll say so</h3>
         <p>I'm a coach and a friendly, experienced ear.</p></div>
-    </div>
-  </section></div>
-
-
-  <div class="bleed">
-    <img src="img/hero.jpg" alt="Four friends outdoors, laughing together mid-conversation">
-    <p class="say">The best part? <em>It starts with a simple conversation.</em></p>
-  </div>
-
-  <div class="her-sec" id="about"><section class="w her-in">
-    <div>
-      <div class="kick">Who you'll be talking to</div>
-      <h2 class="h2">Hi — I'm Dee.</h2>
+    </div></div>
+      </details>
+      <details class="acc"><summary><span class="acc-t">About Dee</span><span class="acc-b">Twenty years of it, and why the people part matters most.</span></summary>
+        <div class="acc-in"><div>
       <p>For more than 20 years I've had the privilege of helping people navigate challenges, recognize their potential, build confidence, and take meaningful steps toward the life and career they want.</p>
       <p>My professional background includes operational strategy, P&amp;L management, sales and market-share growth, cost control, leadership development, and turning struggling businesses into successful ones. But over the years I've learned that the most rewarding part of my work isn't the numbers or the business results — it's the people.</p>
       <p>I've mentored leaders through career transitions, helped people find their confidence when they were questioning themselves, encouraged others to take on challenges they didn't think they were ready for, and supported people as they pursued promotions, new opportunities, and entirely new directions in life.</p>
@@ -658,14 +673,10 @@
       <p class="hi">I believe we're all works in progress. I certainly am. After 20 years of mentoring and helping others navigate their own paths, I'm still learning, still exploring, and still figuring things out — just like everyone else.</p>
       <p class="hi" style="font-size:22px"><strong>Pull up a chair &amp; Let's TALK!</strong></p>
       <div style="margin-top:30px"><a class="btn lg" href="#talk">Let's talk</a></div>
-    </div>
-  </section></div>
-
-  
-
-  <section class="nar" id="faq" style="max-width:none;width:100%"><div class="nar">
-    <div class="kick">Honest answers</div>
-    <h2 class="h2">The things people ask me quietly.</h2>
+    </div></div>
+      </details>
+      <details class="acc"><summary><span class="acc-t">Questions people ask me quietly</span><span class="acc-b">Getting emotional, staying anonymous, whether 30 minutes is enough.</span></summary>
+        <div class="acc-in"><div class="nar">
     <div class="faq">
       <details class="fq"><summary>What if I get emotional?</summary><p>Then you get emotional. It's a conversation, not a performance — and you'd be surprised how often it happens about five minutes in. I'm not fazed, and I won't make it a thing.</p></details>
       <details class="fq"><summary>Do I need to know what I want to say first?</summary><p>No. Plenty of people start with "I don't really know why I booked this." That's usually a sign it was the right call.</p></details>
@@ -674,8 +685,16 @@
       <details class="fq"><summary>Is 30 minutes really enough?</summary><p>It's enough to get clear on one thing and leave with a next step. Most people are surprised how much lifts just from saying it out loud to someone who isn't involved.</p></details>
       <details class="fq"><summary>Can we meet in person?</summary><p>Sometimes, yes — if you'd rather sit across from someone than look at a screen, say so when you book and we'll see what we can arrange. Otherwise it's video, voice or text, and that works just as well.</p></details>
       <details class="fq"><summary>How soon can we talk?</summary><p>Often the same day. If I'm free you'll see it on the calendar — and if it's urgent, say so when you book and I'll do my best to move things.</p></details>
+    </div></div>
+      </details>
     </div>
   </div></section>
+
+  <div class="bleed">
+    <img src="img/hero.jpg" alt="Four friends outdoors, laughing together mid-conversation">
+    <p class="say">The best part? <em>It starts with a simple conversation.</em></p>
+  </div>
+
 
   <div class="portal" id="talk"><section class="w">
     <div class="kick">Talk to Dee</div>
