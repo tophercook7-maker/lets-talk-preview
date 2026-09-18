@@ -47,8 +47,7 @@ IMAGES = {
 CAL = {
     "15":    "https://cal.com/letstalk2me/talk-now",
     "30":    "https://cal.com/letstalk2me/30min",
-    "month": "",   # Stripe subscription link — Cal.com can't bill recurring.
-                   # _build/stripe-build.py prints this once Dee's Stripe exists.
+    "month": "https://buy.stripe.com/8x2bJ14GLeTqejr5HZafS00",  # $150/mo, live
     "base":  "https://cal.com/letstalk2me",
 }
 
