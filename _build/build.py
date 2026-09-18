@@ -55,7 +55,7 @@ CAL = {
 # Stripe is connected, so pointing the site at Cal.com now would let every
 # visitor book Dee for free. Flip this to True only after prices are live and
 # a test booking has actually taken payment.
-PRICES_SET = False
+PRICES_SET = True
 
 # Where "Ask a question first" goes. This is the business account, not her
 # personal Gmail — that was on the live site and is exactly what gets scraped.
